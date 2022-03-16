@@ -27,7 +27,7 @@ if &background ==# 'dark'
   let s:comment     = '#737373'
   let s:guides      = '#4A4A4F'
   let s:visual      = '#38383D'
-  let s:background  = '#2a2a2e'
+  let s:background  = '#111111'
   let s:border      = '#1b1b1d'
 
   let s:highlight   = '#434347'
