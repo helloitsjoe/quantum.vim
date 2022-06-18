@@ -25,7 +25,7 @@ if &background ==# 'dark'
   let s:fg_sec      = '#C1C0C0'
   let s:fg_alt      = '#939295'
   let s:comment     = '#737373'
-  let s:guides      = '#B98EFF' " '#4A4A4F'
+  let s:guides      = '#4A4A4F'
   let s:visual      = '#38383D'
   let s:background  = '#151525' " '#111522'
   let s:border      = '#1b1b1d'
@@ -102,7 +102,7 @@ call s:h("Folded", { "fg": s:fg_alt })
 call s:h("FoldColumn", {})
 call s:h("SignColumn", { "bg": s:background })
 call s:h("IncSearch", { "fg": s:background, "bg": s:string })
-call s:h("LineNr", { "fg": s:guides })
+call s:h("LineNr", { "fg": s:string })
 call s:h("CursorLineNr", { "fg": s:fg_sec })
 call s:h("MatchParen", { "fg": s:foreground, "bg": s:comment, "gui": "underline" })
 call s:h("ModeMsg", {})
