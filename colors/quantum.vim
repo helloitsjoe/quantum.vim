@@ -43,6 +43,14 @@ if &background ==# 'dark'
   let s:constant    = '#FC9867'
   let s:error       = '#EB5368'
   let s:warning     = '#FFD866'
+
+  " Visual highlight
+  let s:fg_visual   = s:foreground
+  let s:bg_visual   = '#3B44BB'
+
+  " This is kinda neat too
+  " let s:fg_visual   = s:background
+  " let s:bg_visual   = s:special
 else
   let s:foreground  = '#38383D'
   let s:fg_sec      = '#4A4A4F'
@@ -120,7 +128,7 @@ call s:h("TabLineFill", { "fg": s:fg_alt, "bg": s:background })
 call s:h("TabLineSel", { "fg": s:string })
 call s:h("Terminal", { "fg": s:foreground, "bg": s:background })
 call s:h("Title", { "fg": s:string }) 
-call s:h("Visual", { "bg": s:keyword, "fg": s:background }) " bg s:special is neat too
+call s:h("Visual", { "fg": s:fg_visual, "bg": s:bg_visual })
 call s:h("VisualNOS", {})
 call s:h("WarningMsg", { "fg": s:warning })
 call s:h("WildMenu", { "fg": s:background, "bg": s:string })
