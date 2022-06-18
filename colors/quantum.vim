@@ -25,7 +25,7 @@ if &background ==# 'dark'
   let s:fg_sec      = '#C1C0C0'
   let s:fg_alt      = '#939295'
   let s:comment     = '#737373'
-  let s:guides      = '#4A4A4F'
+  let s:guides      = '#B98EFF' " '#4A4A4F'
   let s:visual      = '#38383D'
   let s:background  = '#151525' " '#111522'
   let s:border      = '#1b1b1d'
@@ -120,7 +120,7 @@ call s:h("TabLineFill", { "fg": s:fg_alt, "bg": s:background })
 call s:h("TabLineSel", { "fg": s:string })
 call s:h("Terminal", { "fg": s:foreground, "bg": s:background })
 call s:h("Title", { "fg": s:string }) 
-call s:h("Visual", { "bg": s:visual })
+call s:h("Visual", { "bg": s:keyword, "fg": s:background }) " bg s:special is neat too
 call s:h("VisualNOS", {})
 call s:h("WarningMsg", { "fg": s:warning })
 call s:h("WildMenu", { "fg": s:background, "bg": s:string })
