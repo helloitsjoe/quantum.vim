@@ -35,12 +35,28 @@ if &background ==# 'dark'
   let s:search      = '#58585C'
   let s:virtualtext = '#4A4A4F'
 
-  let s:keyword     = '#FF7DE9'
-  let s:special     = '#75BFFF'
-  let s:string      = '#6B89FF'
-  let s:function    = '#87DE74'
-  let s:type        = '#B98EFF'
-  let s:constant    = '#FC9867'
+  " Color definitions
+  let s:red = 'red' 
+  let s:pink = '#FF7DE9' 
+  let s:skyblue = '#75BFFF' 
+  let s:blueviolet = '#6B89FF' 
+  let s:limegreen = '#87DE74' 
+  let s:purple = '#B98EFF'
+  let s:yellow = 'yellow'
+  let s:orange = '#FC9867' 
+  let s:gray = 'gray' 
+
+  let s:keyword     = s:pink " pink
+  let s:special     = s:skyblue " light blue (fn args)
+  let s:string      = s:blueviolet
+  let s:console     = s:purple
+  let s:function    = s:limegreen " fn names
+  let s:type        = s:pink " const
+  let s:constant    = s:limegreen " require, module
+  let s:boolean     = s:orange
+  let s:operator    = s:gray
+  let s:import      = s:pink
+
   let s:error       = '#EB5368'
   let s:warning     = '#FFD866'
 
@@ -137,11 +153,11 @@ call s:h("WildMenu", { "fg": s:background, "bg": s:string })
 
 " Syntax Groups (see `:help group-name`) {{{
 call s:h("Comment", { "fg": s:comment, "gui": "italic" })
-call s:h("Constant", { "fg": s:constant })
+call s:h("Constant", { "fg": s:constant }) " require, module
 call s:h("String", { "fg": s:string })
 call s:h("Character", { "fg": s:string })
 call s:h("Number", { "fg": s:constant })
-call s:h("Boolean", { "fg": s:constant })
+call s:h("Boolean", { "fg": s:boolean })
 call s:h("Float", { "fg": s:constant })
 call s:h("Identifier", { "fg": s:foreground })
 call s:h("Function", { "fg": s:function })
@@ -149,22 +165,22 @@ call s:h("Statement", { "fg": s:keyword })
 call s:h("Conditional", { "fg": s:keyword })
 call s:h("Repeat", { "fg": s:keyword })
 call s:h("Label", { "fg": s:keyword })
-call s:h("Operator", { "fg": s:keyword })
+call s:h("Operator", { "fg": s:operator })
 call s:h("Keyword", { "fg": s:keyword })
 call s:h("Exception", { "fg": s:keyword })
 call s:h("PreProc", { "fg": s:keyword })
-call s:h("Include", { "fg": s:keyword })
+call s:h("Include", { "fg": s:import })
 call s:h("Define", { "fg": s:keyword })
 call s:h("Macro", { "fg": s:keyword })
 call s:h("PreCondit", { "fg": s:keyword })
-call s:h("Type", { "fg": s:type, "gui": 'italic' })
-call s:h("StorageClass", { "fg": s:type, "gui": 'italic' })
+call s:h("Type", { "fg": s:console, "gui": 'italic' }) " console
+call s:h("StorageClass", { "fg": s:type, "gui": 'italic' }) " const
 call s:h("Structure", { "fg": s:type })
 call s:h("Typedef", { "fg": s:type })
 call s:h("Special", { "fg": s:fg_alt })
 call s:h("SpecialChar", { "fg": s:special })
 call s:h("Tag", {})
-call s:h("Delimiter", { "fg": s:fg_alt })
+call s:h("Delimiter", { "fg": s:fg_alt }) " parens/brackets
 call s:h("SpecialComment", { "fg": s:fg_alt })
 call s:h("Debug", { "fg": s:warning })
 call s:h("Underlined", { "gui": "underline" })
@@ -183,12 +199,46 @@ call s:h("Todo", { "fg": s:warning, "gui": 'bold' })
     call s:h("jsFuncArgs", { "fg": s:special, "gui": "italic" })
     call s:h("jsThis", { "fg": s:fg_sec, "gui": "italic" })
     call s:h("jsSuper", { "fg": s:fg_sec, "gui": "italic" })
+
+    " Better to do this with links?
+    call s:h("jsObjectKey", { "fg": s:limegreen })
+    call s:h("jsObjectShorthandProp", { "fg": s:skyblue })
+    call s:h("jsDestructuringBlock", { "fg": s:skyblue })
+    call s:h("jsDestructuringAssignment", { "fg": s:skyblue })
+    call s:h("jsDestructuringPropertyValue", { "fg": s:skyblue })
+    call s:h("jsSpreadExpression", { "fg": s:skyblue })
+    call s:h("jsSpreadOperator", { "fg": s:pink })
+    call s:h("jsVariableDef", { "fg": s:skyblue })
+    call s:h("jsFuncBlock", { "fg": s:purple })
+    call s:h("jsParen", { "fg": s:skyblue })
+    call s:h("jsObjectProp", { "fg": s:limegreen })
+    call s:h("jsTemplateExpression", { "fg": s:skyblue })
+    call s:h("jsTemplateBraces", { "fg": s:pink })
+    " call s:h("jsParens", { "fg": s:pink})
+
     hi link jsClassKeyword  Type
     hi link jsGlobalObjects Type
     hi link jsPrototype     Type
     hi link jsFunction      Keyword
     hi link jsArrowFunction Operator
     hi def link Noise       Delimiter
+  " }}}
+
+  " HerringtonDarkholme/yats {{{
+    call s:h("typescriptCall", { "fg": s:skyblue })
+    call s:h("typescriptTypeReference", { "fg": s:purple })
+    call s:h("typescriptVariable", { "fg": s:pink })
+    call s:h("typescriptVariableDeclaration", { "fg": s:skyblue })
+    call s:h("typescriptConditionalParen", { "fg": s:skyblue })
+    call s:h("typescriptIdentifierName", { "fg": s:purple })
+    call s:h("typescriptOperator", { "fg": s:pink })
+    call s:h("typescriptGlobal", { "fg": s:limegreen })
+    call s:h("typescriptMember", { "fg": s:skyblue })
+    call s:h("typescriptMemberOptionality", { "fg": s:limegreen })
+    call s:h("typescriptParenExp", { "fg": s:pink })
+    call s:h("typescriptUnaryOp", { "fg": s:orange })
+    call s:h("typescriptProp", { "fg": s:limegreen })
+    hi link typescriptIdentifierName Operator
   " }}}
 
 " Ruby
