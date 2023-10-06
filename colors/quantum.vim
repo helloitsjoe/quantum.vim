@@ -214,6 +214,7 @@ call s:h("Todo", { "fg": s:warning, "gui": 'bold' })
     call s:h("jsObjectProp", { "fg": s:limegreen })
     call s:h("jsTemplateExpression", { "fg": s:skyblue })
     call s:h("jsTemplateBraces", { "fg": s:pink })
+    call s:h("jsxTagName", { "fg": s:limegreen })
     " call s:h("jsParens", { "fg": s:pink})
 
     hi link jsClassKeyword  Type
@@ -226,11 +227,15 @@ call s:h("Todo", { "fg": s:warning, "gui": 'bold' })
 
   " HerringtonDarkholme/yats {{{
     call s:h("typescriptCall", { "fg": s:skyblue })
+    call s:h("typescriptParens", { "fg": s:gray })
     call s:h("typescriptTypeReference", { "fg": s:purple })
     call s:h("typescriptVariable", { "fg": s:pink })
     call s:h("typescriptVariableDeclaration", { "fg": s:skyblue })
+    call s:h("typescriptDefaultImportName", { "fg": s:purple })
     call s:h("typescriptConditionalParen", { "fg": s:skyblue })
     call s:h("typescriptIdentifierName", { "fg": s:purple })
+    call s:h("typescriptAliasDeclaration", { "fg": s:limegreen })
+    call s:h("typescriptClassName", { "fg": s:limegreen })
     call s:h("typescriptOperator", { "fg": s:pink })
     call s:h("typescriptGlobal", { "fg": s:limegreen })
     call s:h("typescriptMember", { "fg": s:skyblue })
