@@ -36,25 +36,35 @@ if &background ==# 'dark'
   let s:virtualtext = '#4A4A4F'
 
   " Color definitions
-  let s:red = 'red' 
   let s:pink = '#FF7DE9' 
-  let s:skyblue = '#75BFFF' 
+  let s:blue = '#75BFFF' 
   let s:blueviolet = '#6B89FF' 
-  let s:limegreen = '#87DE74' 
+  let s:green = '#87DE74' 
   let s:purple = '#B98EFF'
-  let s:yellow = 'yellow'
   let s:orange = '#FC9867' 
-  let s:gray = 'gray' 
+
+  " An Old Hope
+  " let s:pink = '#eb3d54' 
+  " red: '#eb3d54',
+  " let s:blueviolet = '#4fb4d8'
+  " let s:green = '#78bd65'
+  " let s:purple = '#e5cd52'
+  " yellow: '#e5cd52',
+  " let s:orange = '#ef7c2a' 
+
+  let s:red = 'red' 
+  let s:yellow = 'yellow'
+
 
   let s:keyword     = s:pink " pink
-  let s:special     = s:skyblue " light blue (fn args)
+  let s:special     = s:blue " light blue (fn args)
   let s:string      = s:blueviolet
   let s:console     = s:purple
-  let s:function    = s:limegreen " fn names
   let s:type        = s:pink " const
-  let s:constant    = s:limegreen " require, module
+  let s:function    = s:green " fn names
+  let s:constant    = s:green " require, module
   let s:boolean     = s:orange
-  let s:operator    = s:gray
+  let s:operator    = s:fg_alt
   let s:import      = s:pink
 
   let s:error       = '#EB5368'
@@ -200,25 +210,28 @@ call s:h("Todo", { "fg": s:warning, "gui": 'bold' })
     call s:h("jsThis", { "fg": s:fg_sec, "gui": "italic" })
     call s:h("jsSuper", { "fg": s:fg_sec, "gui": "italic" })
 
-    " Better to do this with links?
-    call s:h("jsObjectKey", { "fg": s:limegreen })
-    call s:h("jsObjectShorthandProp", { "fg": s:skyblue })
-    call s:h("jsDestructuringBlock", { "fg": s:skyblue })
-    call s:h("jsDestructuringAssignment", { "fg": s:skyblue })
-    call s:h("jsDestructuringPropertyValue", { "fg": s:skyblue })
-    call s:h("jsSpreadExpression", { "fg": s:skyblue })
-    call s:h("jsSpreadOperator", { "fg": s:pink })
-    call s:h("jsDot", { "fg": s:pink })
-    call s:h("jsVariableDef", { "fg": s:skyblue })
-    call s:h("jsFuncBlock", { "fg": s:purple })
-    call s:h("jsFuncArgExpression", { "fg": s:purple })
-    call s:h("jsParen", { "fg": s:skyblue })
-    call s:h("jsObjectProp", { "fg": s:limegreen })
-    call s:h("jsModuleKeyword", { "fg": s:skyblue })
-    call s:h("jsTemplateExpression", { "fg": s:skyblue })
-    call s:h("jsTemplateBraces", { "fg": s:pink })
-    call s:h("jsxTagName", { "fg": s:limegreen })
-    " call s:h("jsParens", { "fg": s:pink})
+    hi link jsParen SpecialChar
+    hi link jsVariableDef SpecialChar
+    hi link jsModuleKeyword SpecialChar
+    hi link jsSpreadExpression SpecialChar
+    hi link jsTemplateExpression SpecialChar
+    hi link jsDestructuringBlock SpecialChar
+    hi link jsObjectShorthandProp SpecialChar
+    hi link jsBracket SpecialChar
+    hi link jsObjectValue SpecialChar
+    hi link jsParenIfElse SpecialChar
+    hi link jsDestructuringAssignment SpecialChar
+    hi link jsDestructuringPropertyValue SpecialChar
+    hi link jsDot Keyword
+    hi link jsSpreadOperator Keyword
+    hi link jsTemplateBraces Keyword
+    hi link jsFuncBlock Type
+    hi link jsFuncArgExpression Type
+    hi link jsxTagName Function
+    hi link jsxTagName Function
+    hi link jsObjectKey Function
+    hi link jsObjectProp Function
+    hi link jsOperatorKeyword Function
 
     hi link jsClassKeyword  Type
     hi link jsGlobalObjects Type
@@ -229,25 +242,25 @@ call s:h("Todo", { "fg": s:warning, "gui": 'bold' })
   " }}}
 
   " HerringtonDarkholme/yats {{{
-    call s:h("typescriptCall", { "fg": s:skyblue })
-    call s:h("typescriptParens", { "fg": s:gray })
-    call s:h("typescriptTypeReference", { "fg": s:purple })
-    call s:h("typescriptVariable", { "fg": s:pink })
-    call s:h("typescriptVariableDeclaration", { "fg": s:skyblue })
-    call s:h("typescriptDefaultImportName", { "fg": s:purple })
-    call s:h("typescriptConditionalParen", { "fg": s:skyblue })
-    call s:h("typescriptIdentifierName", { "fg": s:purple })
-    call s:h("typescriptAliasDeclaration", { "fg": s:limegreen })
-    call s:h("typescriptClassName", { "fg": s:limegreen })
-    call s:h("typescriptOperator", { "fg": s:pink })
-    call s:h("typescriptGlobal", { "fg": s:limegreen })
-    call s:h("typescriptMember", { "fg": s:skyblue })
-    call s:h("typescriptMemberOptionality", { "fg": s:limegreen })
-    call s:h("typescriptObjectLabel", { "fg": s:skyblue })
-    call s:h("typescriptParenExp", { "fg": s:pink })
-    call s:h("typescriptUnaryOp", { "fg": s:orange })
-    call s:h("typescriptProp", { "fg": s:limegreen })
-    hi link typescriptIdentifierName Operator
+    hi link typescriptUnaryOp Boolean
+    hi link typescriptParens Delimiter
+    hi link typescriptVariable Keyword
+    hi link typescriptOperator Keyword
+    hi link typescriptParenExp Keyword
+    hi link typescriptTypeReference Type
+    hi link typescriptIdentifierName Type
+    hi link typescriptIdentifierName Type
+    hi link typescriptDefaultImportName Type
+    hi link typescriptCall SpecialChar
+    hi link typescriptMember SpecialChar
+    hi link typescriptObjectLabel SpecialChar
+    hi link typescriptConditionalParen SpecialChar
+    hi link typescriptVariableDeclaration SpecialChar
+    hi link typescriptProp Function
+    hi link typescriptGlobal Function
+    hi link typescriptClassName Function
+    hi link typescriptAliasDeclaration Function
+    hi link typescriptMemberOptionality Function
   " }}}
 
 " Ruby
