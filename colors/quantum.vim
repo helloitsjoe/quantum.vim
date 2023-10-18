@@ -27,7 +27,7 @@ if &background ==# 'dark'
   let s:comment     = '#737373'
   let s:guides      = '#4A4A4F'
   let s:visual      = '#38383D'
-  let s:background  = '#151525' " '#111522'
+  let s:background  = '#181525' " '#111522'
   let s:border      = '#1b1b1d'
 
   let s:highlight   = '#434347'
@@ -42,6 +42,9 @@ if &background ==# 'dark'
   let s:green = '#87DE74' 
   let s:purple = '#B98EFF'
   let s:orange = '#FC9867' 
+  let s:darkgreen = '#004422'
+  let s:darkred = '#550000'
+  let s:mediumgreen = '#00AA00'
 
   " An Old Hope
   " let s:pink = '#eb3d54' 
@@ -66,6 +69,10 @@ if &background ==# 'dark'
   let s:boolean     = s:orange
   let s:operator    = s:fg_alt
   let s:import      = s:pink
+  let s:diffadd     = s:darkgreen
+  let s:diffdelete  = s:darkred
+  let s:difftext    = '#4466DD'
+  let s:diffchange  = '#223377'
 
   let s:error       = '#EB5368'
   let s:warning     = '#FFD866'
@@ -118,10 +125,13 @@ else
   highlight CursorLine gui=NONE guifg=NONE guibg='#F1F1F2' cterm=NONE ctermfg=NONE ctermbg=NONE
 endif
 call s:h("Directory", { "fg": s:fg_alt })
-call s:h("DiffAdd", { "bg": s:function, "fg": s:background })
-call s:h("DiffChange", { "fg": s:warning, "gui": "underline" })
-call s:h("DiffDelete", { "bg": s:error, "fg": s:background })
-call s:h("DiffText", { "bg": s:warning, "fg": s:background })
+
+" Diff colors
+call s:h("DiffAdd", { "bg": s:diffadd, "fg": "#00FF00" })
+call s:h("DiffChange", { "bg": s:diffchange, "fg": s:difftext })
+call s:h("DiffDelete", { "bg": s:diffdelete, "fg": s:foreground })
+call s:h("DiffText", { "bg": s:difftext, "fg": "white" })
+
 call s:h("ErrorMsg", { "fg": s:error })
 call s:h("VertSplit", { "fg": s:border })
 call s:h("Folded", { "fg": s:fg_alt })
