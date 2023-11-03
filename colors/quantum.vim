@@ -71,8 +71,10 @@ if &background ==# 'dark'
   let s:import      = s:pink
   let s:diffadd     = s:darkgreen
   let s:diffdelete  = s:darkred
-  let s:difftext    = '#4466DD'
-  let s:diffchange  = '#223377'
+  let s:difftext    = s:yellow
+  let s:diffchange  = '#997700'
+  " let s:difftext    = '#4466DD'
+  " let s:diffchange  = '#223377'
 
   let s:error       = '#EB5368'
   let s:warning     = '#FFD866'
@@ -129,7 +131,7 @@ call s:h("Directory", { "fg": s:fg_alt })
 " Diff colors
 call s:h("DiffAdd", { "bg": s:diffadd, "fg": "#00FF00" })
 call s:h("DiffChange", { "bg": s:diffchange, "fg": s:difftext })
-call s:h("DiffDelete", { "bg": s:diffdelete, "fg": s:foreground })
+call s:h("DiffDelete", { "bg": s:diffdelete, "fg": s:red })
 call s:h("DiffText", { "bg": s:difftext, "fg": "white" })
 
 call s:h("ErrorMsg", { "fg": s:error })
