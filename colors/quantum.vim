@@ -24,8 +24,8 @@ if &background ==# 'dark'
   let s:foreground  = '#D7D7DB'
   let s:fg_sec      = '#C1C0C0'
   let s:status_line = 'blueviolet'
-  let s:fg_alt      = 'purple'
-  " let s:fg_alt      = '#939295'
+  " let s:fg_alt      = 'purple'
+  let s:fg_alt      = '#939295'
   let s:comment     = '#737373'
   let s:guides      = '#4A4A4F'
   let s:visual      = '#38383D'
@@ -45,7 +45,8 @@ if &background ==# 'dark'
   let s:purple = '#B98EFF'
   let s:orange = '#FC9867' 
   let s:darkgreen = '#004422'
-  let s:darkred = '#550000'
+  let s:darkergreen = '#002211'
+  let s:darkred = '#330000'
   let s:mediumgreen = '#00AA00'
 
   " An Old Hope
@@ -73,8 +74,8 @@ if &background ==# 'dark'
   let s:import      = s:pink
   let s:diffadd     = s:darkgreen
   let s:diffdelete  = s:darkred
-  let s:difftext    = 'purple'
-  let s:diffchange    = '#4400FF'
+  let s:difftext    = s:darkgreen
+  let s:diffchange    = s:darkergreen
   " let s:difftext    = s:yellow
   " let s:diffchange  = '#997700'
   " let s:difftext    = '#4466DD'
@@ -135,8 +136,8 @@ call s:h("Directory", { "fg": s:fg_alt })
 " Diff colors
 call s:h("DiffAdd", { "bg": s:diffadd, "fg": "#00FF00" })
 call s:h("DiffChange", { "bg": s:diffchange, "fg": s:difftext })
-call s:h("DiffDelete", { "bg": s:diffdelete, "fg": s:red })
-call s:h("DiffText", { "bg": s:difftext, "fg": "white" })
+call s:h("DiffDelete", { "bg": s:diffdelete, "fg": 'darkred' })
+call s:h("DiffText", { "bg": s:difftext, "fg": "seagreen" })
 
 call s:h("ErrorMsg", { "fg": s:error })
 call s:h("VertSplit", { "fg": s:border })
